@@ -8,6 +8,7 @@ package ru.yura.web.app;
  */
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import ru.yura.web.app.config.ConfigProperties;
 import ru.yura.web.model.User;
 
 import java.util.List;
@@ -29,6 +31,7 @@ import java.util.List;
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class Application {
 
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
@@ -36,5 +39,5 @@ public class Application {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
-    }
+       }
 }
