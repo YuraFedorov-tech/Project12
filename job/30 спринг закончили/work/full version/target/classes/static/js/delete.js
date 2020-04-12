@@ -28,16 +28,30 @@ function succsess2(result) {
 
 function returnListRoles( idDelete) {
     var ansRole = 'dsf';
-  //  result.css({border: '2px solid blue'});
     $('.js-tableUsers tr td:first-child  span').each(function () {
         var ans = $(this);
-
         if (ans.text() == idDelete) {
-            ansRole= ans.parent().parent().children().find('#js-spanRole').text();
-            alert(ansRole);
-
+            ansRole= ans.parent().parent().children().find('.js-spanRole').text();
         }
     });
-    alert(ansRole);
-    return ansRole;
+    var ans2=getRoleWithSpace(ansRole);
+    return ans2;
+}
+function getRoleWithSpace( ansRole) {
+    var ansRoleWithSpac = '';
+    ansRoleWithSpac=findAtOneRole(ansRole, 'GUEST');
+    ansRoleWithSpac=ansRoleWithSpac+findAtOneRole(ansRole, 'USER');
+    ansRoleWithSpac=ansRoleWithSpac+findAtOneRole(ansRole, 'ADMIN');
+    ansRoleWithSpac=ansRoleWithSpac+findAtOneRole(ansRole, 'SUPERADMIN');
+    return ansRoleWithSpac;
+}
+
+function findAtOneRole( ansRole ,pretendent) {
+    console.log(ansRole);
+    var ansRoleWithSpac = '';
+    if(ansRole.indexOf(pretendent) !== -1){
+        alert(pretendent);
+        ansRoleWithSpac=pretendent+" ";
+    }
+    return ansRoleWithSpac;
 }

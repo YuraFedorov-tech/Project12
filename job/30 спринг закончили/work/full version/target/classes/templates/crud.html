@@ -133,7 +133,7 @@
                                     <td><span th:text="${userIn.password}"/></td>
 
                                     <td>
-                                <span id="js-spanRole" style="margin-right: 5px" th:each="roles : ${userIn.roles}"
+                                <span class="js-spanRole" style="margin-right: 5px" th:each="roles : ${userIn.roles}"
                                       th:text="${roles.role}"></span>
                                     </td>
                                     <td>
@@ -359,11 +359,7 @@
 
 
                         <label class="col-form-label" for="roleDelete">
-                            <!--                            <td><span>Role</span>-->
-                            <td>
-                                <span style="margin-right: 5px" th:each="roles : ${user.roles}"
-                                      th:text="${roles.role}"></span>
-                            </td>
+                            <td><span>Role</span>
                         </label>
                         <span>   <input class="form-control" id="roleDelete" name="role" readonly required
                                         type="text"></span></br>
@@ -412,7 +408,7 @@
         const roleDelete = button.data('roleDelete');
         const modal = $(this);
 
-        var roledeleteNew2 = returnListRoles(idDelete );
+        var roledeleteNew2 = returnListRoles(idDelete);
 
         modal.find('#ageDelete').val(ageDelete);
         modal.find('#passwordDelete').val(passwordDelete);
